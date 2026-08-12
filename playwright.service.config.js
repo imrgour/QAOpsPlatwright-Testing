@@ -13,7 +13,7 @@ export default defineConfig(
     credential: new DefaultAzureCredential(),
   }),
   {
-    /*
+    /*clear
     Enable Playwright Workspaces Reporter:
     Uncomment the reporter section below to upload test results and reports to Playwright Workspaces.
 

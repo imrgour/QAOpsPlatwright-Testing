@@ -55,13 +55,7 @@ test('UIControls', async({ page })=>
     await page.locator("#terms").uncheck();
     expect(await page.locator("#terms").isChecked()).toBeFalsy();
 
-    await expect(documentLink).toHaveAttribute("class","blinkingTexts");
-
-
-
-
-
-
+    await expect(documentLink).toHaveAttribute("class","blinkingText");
 
 })
 
@@ -89,10 +83,5 @@ test('childWindow', async({ browser })=>
 
     await userName.fill(email);
     console.log("emails is the ----" + await userName.inputValue())
-    page.pause();
-
-
-
-
-
+    
 })

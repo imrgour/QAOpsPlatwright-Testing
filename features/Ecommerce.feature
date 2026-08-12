@@ -19,3 +19,18 @@ Feature: Ecommerce Validation
       | ram@gmail.com  | abcdes@123 |
       | sonu@gmail.com | qwerty@123 |
 
+
+
+/*
+az role assignment create `
+  --assignee "$(az ad sp list --display-name 'Ram-Github_Playwright' --query '[0].appid' -o tsv)" `
+  --role "Storage Blob Data Contributor" `
+  --scope "$(az storage account show --name pwstrgrambcd4 --resource-group ram --query id -o tsv)"
+
+
+az ad sp create-for-rbac `
+  --name "Ram-Github_Playwright" `
+  --role "Contributor" `
+  --scopes "/subscriptions/889e5336-bc5a-40b6-95c6-95644324b281/resourceGroups/RAM" `
+  --json-auth
+*/

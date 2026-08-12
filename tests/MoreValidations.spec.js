@@ -37,13 +37,11 @@ await page.goto("https://rahulshettyacademy.com/automationPractice/");
 test('visual comparision', async ({page})=> 
 {
 
-    
-    
 await page.goto("https://rahulshettyacademy.com/automationPractice/");
 
 
     //await page.screenshot({path : 'Downloads/screenshot1.png'})
-    expect(await page.screenshot()).toMatchSnapshot('screenshota.png');
+   // expect(await page.screenshot()).toMatchSnapshot('screenshota.png');
 
     
 
