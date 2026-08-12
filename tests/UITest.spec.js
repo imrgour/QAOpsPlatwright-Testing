@@ -56,7 +56,6 @@ test('UIControls', async({ page })=>
     expect(await page.locator("#terms").isChecked()).toBeFalsy();
 
     await expect(documentLink).toHaveAttribute("class","blinkingText");
-
 })
 
 
