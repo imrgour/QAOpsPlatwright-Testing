@@ -60,11 +60,10 @@ test('UIControls', async({ page })=>
 
 
 
-test('childWindow', async({ browser })=>
+test('childWindow', async({ page })=>
 {
 
-    const context = await browser.newContext();
-    const page = await context.newPage();
+    
     const userName = page.locator("input#username");
     await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
     const documentLink = page.locator("[href*='documents-request']");
