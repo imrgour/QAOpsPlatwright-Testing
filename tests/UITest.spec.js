@@ -71,6 +71,7 @@ test('childWindow', async({ page })=>
     const [newPage] = await Promise.all([
         context.waitForEvent('page'),
         documentLink.click(),
+        //test
     ])
 
     const text = await newPage.locator(".red").textContent()
