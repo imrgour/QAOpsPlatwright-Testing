@@ -1,7 +1,7 @@
 const {test,expect,request} = require('@playwright/test')
 
 
-const loginPayload = {userEmail: "Das1@gmail.com", userPassword: "Qwerty@@123"}
+const loginPayload = {userEmail: "Dinesh@mail.com", userPassword: "Qazwsp@123"}
 
 
 test.beforeAll( async()=> {
