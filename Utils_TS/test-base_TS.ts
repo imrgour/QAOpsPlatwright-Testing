@@ -15,8 +15,8 @@ export const customtest = baseTest.extend<{testDataforOrder:TestDataforOrder}>(
     {
         testDataforOrder :
         {
-            username : "Das1@gmail.com",
-            password : "Qwerty@@123",
+            username : "Manoj@gmail.com",
+            password : "Qazwsp@1234",
             productname : "ZARA COAT 3",
             countryCode : "ind",
             countryName : "India"

@@ -54,15 +54,16 @@ test('UIControls', async({ page })=>
     await expect(page.locator("#terms")).toBeChecked();
     await page.locator("#terms").uncheck();
     expect(await page.locator("#terms").isChecked()).toBeFalsy();
-
     await expect(documentLink).toHaveAttribute("class","blinkingText");
 })
 
 
 
-test('childWindow', async({ page })=>
+test('childWindow', async({ browser })=>
 {
 
+    const context = await browser.newContext();
+    const page = await context.newPage();
     
     const userName = page.locator("input#username");
     await page.goto("https://rahulshettyacademy.com/loginpagePractise/");

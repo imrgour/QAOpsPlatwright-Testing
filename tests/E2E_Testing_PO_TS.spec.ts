@@ -29,6 +29,7 @@ test(` @web Client app E2E flow for ${data.productname}`, async ({browser})=>
 
     //Creating Cart page  to verify the product and click on the checkout
     const cartpage = POManager.getCartpage(data.productname);
+    //test
     await cartpage.clickCheckout();
     
     //Creating OrderReview page for checkout

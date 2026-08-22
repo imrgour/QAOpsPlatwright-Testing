@@ -17,8 +17,8 @@ test.beforeAll( async ({browser})=> {
     const products = page.locator(".card-body");
 
 
-    await email.fill("Das1@gmail.com");
-    await pAss.fill("Qwerty@@123");
+    await email.fill("OmDas@gmail.com");
+    await pAss.fill("Qazwsp@1234");
     await loginBtn.click();
     await page.locator(".card-body b").first().waitFor();
     context.storageState({path: 'state.json'})
@@ -82,7 +82,6 @@ test('Third TestCase loginAssignment', async ({browser})=>
     await page.locator("tbody").first().waitFor();
     const totalOrders= await page.locator("tbody tr");
     
-
     for(let i=0; i< await totalOrders.count(); i++){
 
         const rowOrderID = await totalOrders.nth(i).locator("th").textContent();

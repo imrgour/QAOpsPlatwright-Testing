@@ -1,24 +1,40 @@
+
+//Login UI >>  .JSON
+
+//Test cases > browser, cart, order, orderdetailpage,  orderhistory
+
 const {test,expect} = require('@playwright/test')
 
+let webContext;
 
-test('Third TestCase loginAssignment', async ({browser})=> 
-{
+test.beforeAll( async ({browser})=> {
+
     const context = await browser.newContext();
     const page = await context.newPage();
     await page.goto("https://rahulshettyacademy.com/client/#/auth/login");
-
-    const productname = 'ZARA COAT 3';
     const loginBtn = page.locator("#login");
     const pAss = page.locator("#userPassword");
     const email = page.locator("#userEmail");
     const products = page.locator(".card-body");
 
 
-    await email.fill("Das1@gmail.com");
-    await pAss.fill("Qwerty@@123");
+    await email.fill("singh111@gmail.com");
+    await pAss.fill("Qazwsp@1234");
     await loginBtn.click();
-
     await page.locator(".card-body b").first().waitFor();
+    context.storageState({path: 'state.json'})
+    webContext = await browser.newContext({storageState : 'state.json'})
+})
+
+
+test('Third TestCase loginAssignment', async ({browser})=> 
+{  
+    const page= await webContext.newPage()
+    const productname = 'ZARA COAT 3';
+    await page.goto("https://rahulshettyacademy.com/client/#/auth/login");
+    const products = page.locator(".card-body");
+   
+    
     //await page.waitForLoadState('networkidle');
     const titles = await page.locator(".card-body b").allTextContents();
     console.log(titles);
@@ -34,21 +50,12 @@ test('Third TestCase loginAssignment', async ({browser})=>
     }
 
     page.locator("[routerlink='/dashboard/cart']").click();
-
-
-    /////////////////////////////////////////////////////////////////
-
-
-    //verify the actual product is displayed in the cart page 
     await page.locator(".cart li").first().waitFor();
     const bool = await page.locator("h3:has-text('ZARA COAT 3')").isVisible();
+
     expect(bool).toBeTruthy();
 
     await page.locator("button[type='button']").nth(1).click();
-
-
-    /////////////////////////////////////////////////////////////////
-
 
     await page.locator("[placeholder='Select Country']").pressSequentially("ind", { delay: 150 });
     const dropResults = await page.locator(".ta-results");
@@ -92,3 +99,15 @@ test('Third TestCase loginAssignment', async ({browser})=>
 
 
 })
+
+
+test('TestCase 2 - Print cart titles', async ({browser})=> 
+{  
+    const page= await webContext.newPage()
+    const productname = 'ZARA COAT 3';
+    await page.goto("https://rahulshettyacademy.com/client/#/auth/login");
+    const products = page.locator(".card-body");
+    const titles = await page.locator(".card-body b").allTextContents();
+    console.log(titles);
+
+    })
