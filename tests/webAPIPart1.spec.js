@@ -1,7 +1,7 @@
 const {test,expect,request} = require('@playwright/test')
 
 
-const loginPayload = {userEmail: "Das1@gmail.com", userPassword: "Qwerty@@123"}
+const loginPayload = {userEmail: "Dinesh@mail.com", userPassword: "Qazwsp@123"}
 
 
 test.beforeAll( async()=> {
@@ -37,8 +37,8 @@ test('Third TestCase loginAssignment', async ({browser})=>
     const products = page.locator(".card-body");
 
 
-    await email.fill("Das1@gmail.com");
-    await pAss.fill("Qwerty@@123");
+    await email.fill("Dinesh@mail.com");
+    await pAss.fill("Qazwsp@123");
     await loginBtn.click();
 
     await page.locator(".card-body b").first().waitFor();
@@ -78,7 +78,7 @@ test('Third TestCase loginAssignment', async ({browser})=>
         }
     }
 
-    expect(await page.locator(".user__name [type='text']").first()).toHaveText("Das1@gmail.com");
+    expect(await page.locator(".user__name [type='text']").first()).toHaveText("Dinesh@mail.com");
     await page.locator(".action__submit").click();
     expect(await page.locator(".hero-primary")).toHaveText(" Thankyou for the order. ");
     const orderID = await page.locator(".em-spacer-1 .ng-star-inserted").textContent();
